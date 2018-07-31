@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import './style.less'
 import webpackPng from './webpack.png'
-import printMe from './print'
+import {printMe} from './print'
 
 function component() {
   var element = document.createElement('div');
@@ -19,3 +19,10 @@ function component() {
 }
 
 document.body.appendChild(component());
+
+if(module.hot) {
+  module.hot.accept('./print.js', function () {
+    console.log('Accepting the updated printME Module!')
+    printMe()
+  })
+}

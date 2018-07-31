@@ -5,8 +5,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   entry: {
-    index: './src/index.js',
-    print: './src/print.js'
+    index: ['webpack-hot-middleware/client', './src/index.js'],
   },
   output: {
     filename: '[name][hash].bundle.js',
@@ -23,15 +22,18 @@ module.exports = {
     }, {
       test: /\.(png|svg|jpg|gif)$/,
       use:['file-loader']
-    }]
+    }] 
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: 'Output Management'
     }),
-    new CleanWebpackPlugin(['dist'])
+    new CleanWebpackPlugin(['dist']),
   ],
   devServer: {
-    contentBase: 'dist'
+    contentBase: 'dist',
+    hot: true
   },
+  mode: 'development'
 }
