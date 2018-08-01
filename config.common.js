@@ -1,5 +1,3 @@
-var webpack = require('webpack')
-var path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 
@@ -25,15 +23,9 @@ module.exports = {
     }] 
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       title: 'Output Management'
     }),
-    new CleanWebpackPlugin(['dist']),
-  ],
-  devServer: {
-    contentBase: 'dist',
-    hot: true
-  },
-  mode: 'development'
+    new CleanWebpackPlugin(['dist'])
+  ]
 }

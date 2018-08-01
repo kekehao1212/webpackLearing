@@ -4,7 +4,7 @@ const webPackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 
 const app = express()
-const config = require('./config.js')
+const config = require('./config.dev.js')
 const compiler = webpack(config)
 
 app.use(webPackDevMiddleware(compiler, {
