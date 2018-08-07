@@ -2,9 +2,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
-  entry: {
-    index: ['webpack-hot-middleware/client', './src/index.js'],
-  },
   output: {
     filename: '[name][hash].bundle.js',
     publicPath: '/'
@@ -27,5 +24,10 @@ module.exports = {
       title: 'Output Management'
     }),
     new CleanWebpackPlugin(['dist'])
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  }
 }

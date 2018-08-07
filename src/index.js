@@ -4,6 +4,7 @@ import webpackPng from './webpack.png'
 import {printMe} from './print'
 
 function component() {
+  console.log(process.env.NODE_ENV)
   var element = document.createElement('div');
 
   // Lodash, now imported by this script
@@ -20,9 +21,9 @@ function component() {
 
 document.body.appendChild(component());
 
-if(module.hot) {
-  module.hot.accept('./print.js', function () {
-    console.log('Accepting the updated printME Module!')
-    printMe()
-  })
-}
+// if(module.hot) {
+//   module.hot.accept('./print.js', function () {
+//     console.log('Accepting the updated printME Module!')
+//     printMe()
+//   })
+// }
