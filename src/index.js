@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import './style.less'
 import webpackPng from './webpack.png'
-import {printMe} from './print'
+// import {printMe} from './print'
 
 function component() {
   console.log(process.env.NODE_ENV)
@@ -13,9 +13,15 @@ function component() {
 
   let myIncon = new Image()
   myIncon.src = webpackPng
-
+  let button = document.createElement('button')
+  button.innerHTML = 'clickMe'
+  button.onclick = e => import(/* webpackChunkName: "print"*/'./print').then(module => {
+    var print = module.default
+    print()
+  })
   element.appendChild(myIncon)
-  alert(printMe())
+  element.appendChild(button)
+  // alert(printMe())
   return element;
 }
 
