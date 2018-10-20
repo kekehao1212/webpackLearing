@@ -5,5 +5,5 @@ module.exports = merge(common, {
   entry: {
     index: ['./src/index.js'],
   },
-  mode: 'production'
+  mode: 'development'
 })

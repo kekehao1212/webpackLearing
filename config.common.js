@@ -23,7 +23,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Output Management'
     }),
-    new CleanWebpackPlugin(['dist'])
+    new CleanWebpackPlugin(['dist']),
   ],
   optimization: {
     splitChunks: {
